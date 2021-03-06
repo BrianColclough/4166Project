@@ -12,6 +12,19 @@
     float: left;
 }
 
+body{
+  background-color: lightblue;
+  margin: 0;
+}
+
+h3{
+  padding: 10px;
+}
+
+p{
+  padding: 10px;
+}
+
 .buttons{
     float: initial;
 }
