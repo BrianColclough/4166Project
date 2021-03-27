@@ -1,0 +1,28 @@
+{
+  "name": "4166project",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "nodemon": "^2.0.7",
+    "session": "^0.1.0"
+  },
+  "description": "Website project for 4166",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrianColclough/4166Project.git"
+  },
+  "author": "Brian Colclough",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrianColclough/4166Project/issues"
+  },
+  "homepage": "https://github.com/BrianColclough/4166Project#readme"
+}

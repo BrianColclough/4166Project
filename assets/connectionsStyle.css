@@ -11,7 +11,9 @@
     white-space: nowrap;
     float: left;
 }
-
+.button{
+  text-align: right;
+}
 h2 {
     text-align: right;
     color: black;

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../connectionStyle.css">
+    <link rel="stylesheet" href="../assets/connectionStyle.css">
     <title>Example Connection</title>
 </head>
 <body>
@@ -11,24 +11,24 @@
 
   <%- include ('partials/Navigation.ejs') %>
 
-  <h3>Learning how to build your own keyboard is easy</h3>
+  <h3><%=connection.name%></h3>
 
       <div class = "hostPicture">
-          <img src="images/placeholderHost.jpg" alt="Host" width="250" height="190">
+          <img src="../../assets/placeholderHost.jpg" alt="Host" width="250" height="190">
       </div>
-      Hosted by: Brian Colclough <br>
-      Wednesday Febuary 10, 2021 <br>
-      Woodward hall room 106 <br>
-
+  <br>
+      Topic: <%=connection.topic%> <br>
+      Time: <%=connection.time%> <br>
+      <br>
   <h3>Details</h3>
-  This is an instructional meetup that will provide you with the information that you need to know to learn how to make your own keyboard on your own.
-
+  <%=connection.details%>
+  <br>
 
   <div class = "buttons">
       <p>Are you going?</p>
-      <button type="button" onclick="document.location='savedConnections.html'">Yes</button>
-      <button type="button" onclick="document.location='savedConnections.html'">No</button>
-      <button type="button" onclick="document.location='savedConnections.html'">Maybe</button>
+      <button type="button" onclick="location.href = '/connection/<%=connection.id%>/savedConnections'">Yes</button>
+      <button type="button" onclick="location.href = '/connection/<%=connection.id%>/savedConnections'">No</button>
+      <button type="button" onclick="location.href = '/connection/<%=connection.id%>/savedConnections'">Maybe</button>
   </div>
 
 </body>

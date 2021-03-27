@@ -2,39 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="indexStyle.css">
+    <link rel="stylesheet" href="../assets/indexStyle.css">
     <title>Brians home page</title>
 </head>
-<div class="header">
-    <div class="imageHeader">
-        <img src="images/keyboard.jpg" alt="keyboard header" onclick="document.location='index.html'" width="250" height="140">
-    </div>
+<body>
+<%- include ('partials/header.ejs') %>
 
-    <h1> Mechanical Keyboard Connections</h1>
-    <h2><a href="connections.html">start a new connection</a> | <a href="savedConnections.html">Login</a> | <a href="savedConnections.html">Sign up</a></h2></div>
+<%- include ('partials/Navigation.ejs') %>
 
 
-<div class="nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="connections.html">Connections</a></li>
-            <li><a href="">Contact</a></li>
-        </ul>
-</div>
-
-
-    <h3>Example 1</h3>
+    <h3>Welcome to Keyboard Connections</h3>
     <p>
         Hello, welcome to the mechanical keybord meetup website. Designed for people who want to find more people interested in the hobby or just want to learn more about it.
         <br>
         This is a hobby where people build their own keyboard and pick and choose components to build something that you know you will like.
     </p>
     <br>
+</body>
 
-    <footer>
-        <p>&#169; Brian Colclough</p>
-    </footer>
-
-
+<%- include ('partials/footer.ejs') %>
 
 </html>
