@@ -1,38 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/assets/savedConnectionsStyle.css">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/assets/savedConnectionsStyle.css" />
     <title>Saved Connections</title>
-</head>
-<body>
+  </head>
+  <body>
+    <%- include ('partials/header.ejs') %> <%- include
+    ('partials/Navigation.ejs') %>
 
-  <%- include ('partials/header.ejs') %>
-
-  <%- include ('partials/Navigation.ejs') %>
-
-  <div class = "savedEvents">
-    <h3>Your Saved Events:</h3>
+    <div class="savedEvents">
+      <h3>Your Saved Events:</h3>
+      <%if(typeof user!='undefined'){%>
+      <p>Welcome <%=user.userID%></p>
       <table id="connectionTable">
-        <%
-        if (typeof connection != 'undefined'){  %>
+        <% if (user.connectionList.length != 0){ %>
+        <tr>
+          <th>Name</th>
+          <th>Details</th>
+          <th>Rsvp</th>
+          <th>Update Rsvp</th>
+        </tr>
+        <% for(let i=0;i<user.connectionList.length;i++){ %>
           <tr>
-              <td><%= connection.name %></td>
-              <td><%= connection.topic%></td>
-              <td>Yes</td>
-              <td> <button type="button" onclick="document.location='connection.html'">Update</button> <button type="button" onclick="document.location='savedConnections.html'">Delete</button> </td>
+            <td><%=user.connectionList[i].Connection.name %></td>
+            <td><%=user.connectionList[i].Connection.details %></td>
+            <td><%=user.connectionList[i].rsvp%></td>
+            <td>
+              <div class="buttons">
+                <form
+                  method="POST"
+                  action="/savedConnections/delete/<%=user.connectionList[i].Connection.id%>"
+                >
+                  <input
+                    class="button1"
+                    type="submit"
+                    name="Delete"
+                    value="Delete"
+                  />
+                </form>
+                <form
+                  action="/connection/<%=user.connectionList[i].Connection.id%>"
+                >
+                  <input type="submit" name="Update" value="Update" />
+                </form>
+              </div>
+            </td>
           </tr>
-          
-          <%} else{ %>
+          <%} %> <%} else{ %>
           <p>No connections yet</p>
-
-          </tr>
-
-          <%} %>
+          <%} %> <%} %> <%- include ('partials/footer.ejs') %>
+        </user.connectionList.length;i++){>
       </table>
-  </div>
-</body>
-
-<%- include ('partials/footer.ejs') %>
-
+    </div>
+  </body>
 </html>

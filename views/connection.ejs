@@ -1,38 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../assets/connectionStyle.css">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../assets/connectionStyle.css" />
     <title>Example Connection</title>
-</head>
-<body>
+  </head>
+  <body>
+    <%- include ('partials/header.ejs') %> <%- include
+    ('partials/Navigation.ejs') %>
 
-  <%- include ('partials/header.ejs') %>
+    <h3><%=connection.name%></h3>
 
-  <%- include ('partials/Navigation.ejs') %>
+    <div class="hostPicture">
+      <img
+        src="../../assets/placeholderHost.jpg"
+        alt="Host"
+        width="250"
+        height="190"
+      />
+    </div>
+    <br />
+    Topic: <%=connection.topic%> <br />
+    Time: <%=connection.time%> <br />
+    <br />
+    <h3>Details</h3>
+    <%=connection.details%>
+    <br />
 
-  <h3><%=connection.name%></h3>
-
-      <div class = "hostPicture">
-          <img src="../../assets/placeholderHost.jpg" alt="Host" width="250" height="190">
-      </div>
-  <br>
-      Topic: <%=connection.topic%> <br>
-      Time: <%=connection.time%> <br>
-      <br>
-  <h3>Details</h3>
-  <%=connection.details%>
-  <br>
-
-  <div class = "buttons">
+    <div class="buttons">
       <p>Are you going?</p>
-      <button type="button" onclick="location.href = '/connection/<%=connection.id%>/savedConnections'">Yes</button>
-      <button type="button" onclick="location.href = '/connection/<%=connection.id%>/savedConnections'">No</button>
-      <button type="button" onclick="location.href = '/connection/<%=connection.id%>/savedConnections'">Maybe</button>
-  </div>
+      <form
+        method="POST"
+        action="/savedConnections/rsvp/<%=connection.id%>/Yes"
+      >
+        <input type="submit" name="Yes" value="Yes" />
+      </form>
 
-</body>
+      <form
+        method="POST"
+        action="/savedConnections/rsvp/<%=connection.id%>/Maybe"
+      >
+        <input type="submit" name="Maybe" value="Maybe" />
+      </form>
 
-<%- include ('partials/footer.ejs') %>
+      <form method="POST" action="/savedConnections/rsvp/<%=connection.id%>/No">
+        <input type="submit" name="No" value="No" />
+      </form>
+    </div>
+  </body>
 
+  <%- include ('partials/footer.ejs') %>
 </html>

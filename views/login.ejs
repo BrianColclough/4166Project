@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../assets/indexStyle.css" />
+    <title>About page</title>
+  </head>
+  <body>
+    <%- include ('partials/header.ejs') %> <%- include
+    ('partials/Navigation.ejs') %>
+
+    <h3>Login</h3>
+    <p>Please enter your username and password to begin</p>
+
+    <form id="login-form" method="POST" action="/savedconnections">
+      <label for="username">Username</label>
+      <input type="text" name="username" />
+      <br />
+      <label for="password">Password</label>
+      <input type="text" name="password" /> <br />
+      <input type="submit" name="submit" value="Login" />
+    </form>
+    <br />
+  </body>
+
+  <%- include ('partials/footer.ejs') %>
+</html>

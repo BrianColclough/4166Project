@@ -1,44 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../assets/connectionsStyle.css">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../assets/connectionsStyle.css" />
     <title>Connections</title>
-</head>
-<body>
-  <%- include ('partials/header.ejs') %>
+  </head>
+  <body>
+    <%- include ('partials/header.ejs') %> <%- include
+    ('partials/Navigation.ejs') %>
 
-  <%- include ('partials/Navigation.ejs') %>
-
-    <p>
-      <h3>Learn</h3>
-      <%for(var i=0; i < connections.length;i++){ %>
-        <% if(connections[i].topic == "learn"){%>
-          <a href="connection/<%=i+1%>"><%=connections[i].name%></a> <br>
-        <%} %>
-      <%} %>
-      <h3>Events</h3>
-      <%for(var i=0; i < connections.length;i++){ %>
-        <%if(connections[i].topic == "events"){%>
-          <a href="connection/<%=i+1%>"><%=connections[i].name%></a> <br>
-        <%}%>
-      <%} %>
-
-        <!-- <a href="connection/1"><%=connections[0].name%></a>  <br>
-        <a href="connection/2"><%=connections[1].name%></a>  <br>
-        <a href="connection/3"><%=connections[2].name%></a>  <br>
-    </p>
-    <br>
-
+    <p></p>
     <h3>Learn</h3>
-    <p>
-        <a href="connection/4"><%=connections[3].name%></a>  <br>
-        <a href="connection/5"><%=connections[4].name%></a> <br>
-        <a href="connection/6"><%=connections[5].name%></a>  <br> -->
-    </p>
-</body>
+    <%for(var i=0; i < connections.length;i++){ %> <% if(connections[i].topic ==
+    "learn"){%>
+    <a href="connection/<%=i+1%>"><%=connections[i].name%></a> <br />
+    <%} %> <%} %>
+    <h3>Events</h3>
+    <%for(var i=0; i < connections.length;i++){ %> <%if(connections[i].topic ==
+    "events"){%>
+    <a href="connection/<%=i+1%>"><%=connections[i].name%></a> <br />
+    <%}%> <%} %>
+  </body>
 
-<%- include ('partials/footer.ejs') %>
-
-
+  <%- include ('partials/footer.ejs') %>
 </html>
