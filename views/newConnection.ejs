@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/assets/connectionsStyle.css" />
-    <title>Example Connection</title>
-  </head>
-  <body>
-    <%- include ('partials/header.ejs') %> <%- include
-    ('partials/Navigation.ejs') %>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="/assets/connectionsStyle.css" />
+        <title>Example Connection</title>
+    </head>
+    <body>
+        <%- include ('partials/header.ejs') %> <%- include ('partials/Navigation.ejs') %>
 
-    <form id="contact-form">
-      <label for="topic">Topic</label>
-      <input type="text" name="topic" />
-      <br />
-      <label for="details">Name</label>
-      <input type="text" name="name" />
-      <br />
-      <label for="details">Details</label>
-      <input type="text" name="details" />
-      <br />
-      <label for="where">Where</label>
-      <input type="text" name="where" />
-      <br />
-      <label for="when">When</label>
-      <input type="text" name="details" />
-      <br />
-      <input type="submit" name="submit" value="create connection" />
-    </form>
-  </body>
+        <form id="new-connection-form" action="/connection" method="POST">
+            <label for="topic">Topic</label>
+            <input type="text" name="topic" />
+            <br />
+            <label for="name">Name</label>
+            <input type="text" name="name" />
+            <br />
+            <label for="details">Details</label>
+            <input type="text" name="details" />
+            <br />
+            <label for="id">id number</label>
+            <input type="number" name="id" />
+            <br />
+            <label for="time">When</label>
+            <input type="text" name="time" />
+            <br />
+            <input type="submit" name="submit" value="create connection" />
+        </form>
+    </body>
 
-  <%- include ('partials/footer.ejs') %>
+    <%- include ('partials/footer.ejs') %>
 </html>

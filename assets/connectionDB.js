@@ -1,21 +1,49 @@
-let Connection = require("../models/connection.js");
+let OldConnection = require("../models/connection.js");
 
 //milestone 4 database stuff start
+const mongoose = require("mongoose");
+const Connection = require("../models/connectionModel");
+const db = "mongodb://localhost/connections";
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.Promise = global.Promise;
 
-//returns an array of Connection objects of all the connections
-//objects of all the connections in the connections table from the database
-function getConnections() {}
+//this function returns an array of Connection objects
+//of all the connections in the connections table from the database
 
-//returns a connection object for the probided connection code
-function getConnections(connectionID) {}
+class ConnectionDB {
+    static async getConnection(connectionID) {
+        Connection.findOne({ id: connectionID }, "_id", (err, connection) => {
+            if (err) {
+                console.error(err);
+            } else {
+                return connection;
+            }
+        });
+    }
+
+    static async getConnections() {
+        return await Connection.find({});
+    }
+}
+
+//add a connection to the list of connections
+var addConnection = function addConnection(name, id, time, topic, details) {
+    Connection.create({
+        name: name,
+        id: id,
+        time: time,
+        details: details,
+        topic: topic,
+    });
+};
 
 //old hard-coded database
-let connection1 = new Connection();
-let connection2 = new Connection();
-let connection3 = new Connection();
-let connection4 = new Connection();
-let connection5 = new Connection();
-let connection6 = new Connection();
+let connection1 = new OldConnection();
+let connection2 = new OldConnection();
+let connection3 = new OldConnection();
+let connection4 = new OldConnection();
+let connection5 = new OldConnection();
+let connection6 = new OldConnection();
 
 connection1.setTime("August 5, 2021");
 connection1.setName("Learn how to build your own keyboard");
@@ -69,4 +97,6 @@ var conID = function getConnections(connectionID) {
 module.exports = {
     connect: connect,
     conID: conID,
+    addConnection: addConnection,
+    ConnectionDB: ConnectionDB,
 };

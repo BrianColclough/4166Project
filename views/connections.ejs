@@ -8,15 +8,19 @@
     <body>
         <%- include ('partials/header.ejs') %> <%- include ('partials/Navigation.ejs') %>
 
-        <p></p>
         <h3>Learn</h3>
         <%for(var i=0; i < connections.length;i++){ %> <% if(connections[i].topic == "learn"){%>
-        <a href="connection/<%=i+1%>"><%=connections[i].name%></a> <br />
+        <a href="connection/<%=connections[i].id%>"><%=connections[i].name%></a> <br />
         <%} %> <%} %>
         <h3>Events</h3>
         <%for(var i=0; i < connections.length;i++){ %> <%if(connections[i].topic == "events"){%>
-        <a href="connection/<%=i+1%>"><%=connections[i].name%></a> <br />
-        <%}%> <%} %>
+        <a href="connection/<%=connections[i].id%>"><%=connections[i].name%></a> <br />
+        <%} }%>
+        <h3>Other events</h3>
+        <%for(var i=0; i < connections.length;i++){ %> <% if(connections[i].topic != "learn" &&
+        connections[i].topic != "events"){%>
+        <a href="connection/<%=connections[i].id%>"><%=connections[i].name%></a> <br />
+        <%} %> <%} %>
     </body>
 
     <%- include ('partials/footer.ejs') %>

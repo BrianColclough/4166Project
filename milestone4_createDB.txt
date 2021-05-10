@@ -1,0 +1,10 @@
+CONNECTIONS
+db.connections.insertOne({id: 1, topic: "events", name: "Learn how to build your own keyboard", details: "Learn how to build your own keyboard", time:"August 5, 2021"})
+db.connections.insertOne({id: 2, topic: "events", name: "Keycon 2021", details: "Meet up with others who share the same hobby", time:"September 21, 2021"})
+db.connections.insertOne({id: 3, topic: "events", name: "UNCC Meetup", details: "Meet up with others that attend UNCC and share the same hobby", time:"July 13, 2021"})
+db.connections.insertOne({id: 4, topic: "learn", name: "How to make your keyboard better", details: "Want to know how you can learn to make your cuttent keyboard sound and feel better? This session will teach you just that", time:"November 22, 2021"})
+db.connections.insertOne({id: 5, topic: "learn", name: "How to solder", details: "Knowing how to solder is a trick that could come in handy in many other aspects of life so if you want to learn this is the time!", time:"June 14, 2021"})
+db.connections.insertOne({id: 6, topic: "learn", name: "How to lube switches", details: "Learn how to make your keyboard smoother and sound better", time:"AUgust 26, 2021"})
+
+USERS    
+ db.users.insertOne({id: "Norm", connectionList: []})
